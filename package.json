@@ -1,0 +1,59 @@
+{
+  "name": "@rosalinddb/mcp",
+  "version": "0.1.0",
+  "description": "Model Context Protocol server for RosalindDB - a cost-optimized, object-storage-first vector search database.",
+  "license": "Apache-2.0",
+  "author": "RosalindDB contributors",
+  "homepage": "https://github.com/desquaredp/rosalinddb-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desquaredp/rosalinddb-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/desquaredp/rosalinddb-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "vector-database",
+    "rosalinddb",
+    "claude",
+    "anthropic"
+  ],
+  "type": "module",
+  "bin": {
+    "rosalinddb-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "logo.png",
+    "CODE_OF_CONDUCT.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build && npm test",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "smoke": "npm run build && node tests/smoke.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.5"
+  }
+}
